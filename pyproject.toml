@@ -9,6 +9,6 @@ Repository = "https://github.com/MakkiShizu/comfyui_reimgsize"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "makki-shizu"
 DisplayName = "comfyui_reimgsize"
 Icon = ""
