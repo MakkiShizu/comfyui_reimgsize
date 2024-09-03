@@ -18,8 +18,8 @@ a simple reimgsize node(s) in comfyui | 一个简单的comfyui重载图像大小
 git clone https://github.com/MakkiShizu/comfyui_reimgsize.git
 ```
 使用时节点位置：
-- image/Image_Size_Normalization
-- image/Crop_Image_Ratio
+- image/Reimgsize
+- image/Cropimg
 
 #### 许可证
 该项目使用MIT许可证。
