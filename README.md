@@ -20,8 +20,8 @@ Clone the repository to `custom_nodes`:
 git clone https://github.com/MakkiShizu/comfyui_reimgsize.git
 ```
 nodes path：
-- image/Image_Size_Normalization
-- image/Crop_Image_Ratio
+- image/Reimgsize
+- image/Cropimg
 
 #### License
 This project is licensed under the MIT License.
