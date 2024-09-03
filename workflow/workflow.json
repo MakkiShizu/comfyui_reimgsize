@@ -1,17 +1,76 @@
 {
-  "last_node_id": 11,
+  "last_node_id": 8,
   "last_link_id": 7,
   "nodes": [
     {
-      "id": 3,
-      "type": "SaveImage",
-      "pos": [
-        800,
-        50
-      ],
+      "id": 2,
+      "type": "Reimgsize",
+      "pos": {
+        "0": 500,
+        "1": 100,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 315,
-        "1": 270
+        "1": 106
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Reimgsize"
+      },
+      "widgets_values": [
+        "bicubic",
+        1024,
+        64
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 900,
+        "1": 100,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 200,
+        "1": 250
       },
       "flags": {},
       "order": 4,
@@ -24,21 +83,80 @@
           "label": "images"
         }
       ],
-      "properties": {},
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 6,
+      "type": "Cropimg",
+      "pos": {
+        "0": 100,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 5,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Cropimg"
+      },
       "widgets_values": [
-        "ComfyUI"
+        "bicubic",
+        4,
+        3
       ]
     },
     {
-      "id": 11,
-      "type": "SaveImage",
-      "pos": [
-        1500,
-        350
-      ],
+      "id": 8,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 900,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
-        "0": 315,
-        "1": 270
+        "0": 200,
+        "1": 250
       },
       "flags": {},
       "order": 7,
@@ -51,106 +169,61 @@
           "label": "images"
         }
       ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
     },
     {
-      "id": 10,
-      "type": "Cropimg",
-      "pos": [
-        350,
-        350
-      ],
+      "id": 5,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1150,
+        "1": 300,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
-        "0": 315,
-        "1": 106
+        "0": 200,
+        "1": 250
       },
       "flags": {},
-      "order": 3,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "name": "image",
+          "name": "images",
           "type": "IMAGE",
-          "link": 6,
-          "label": "image",
-          "slot_index": 0
+          "link": 4,
+          "label": "images"
         }
       ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            5
-          ],
-          "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
-        }
-      ],
+      "outputs": [],
       "properties": {
-        "Node name for S&R": "Cropimg"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        4,
-        3
-      ]
+        "Node name for S&R": "PreviewImage"
+      }
     },
     {
-      "id": 9,
-      "type": "Resize",
-      "pos": [
-        700,
-        350
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 5,
-          "label": "image",
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            7
-          ],
-          "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Resize"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        1024,
-        32
-      ]
-    },
-    {
-      "id": 7,
+      "id": 4,
       "type": "Cropimg",
-      "pos": [
-        350,
-        200
-      ],
+      "pos": {
+        "0": 500,
+        "1": 300,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 315,
         "1": 106
@@ -173,41 +246,48 @@
           "links": [
             4
           ],
+          "slot_index": 0,
           "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
+          "label": "IMAGE"
         }
       ],
       "properties": {
         "Node name for S&R": "Cropimg"
       },
       "widgets_values": [
-        "nearest-exact",
-        9,
-        16
+        "bicubic",
+        16,
+        9
       ]
     },
     {
-      "id": 1,
-      "type": "Resize",
-      "pos": [
-        350,
-        50
-      ],
+      "id": 7,
+      "type": "Reimgsize",
+      "pos": {
+        "0": 500,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 315,
         "1": 106
       },
       "flags": {},
-      "order": 1,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 1,
-          "label": "image",
-          "slot_index": 0
+          "link": 6,
+          "label": "image"
         }
       ],
       "outputs": [
@@ -215,56 +295,37 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            2
+            7
           ],
+          "slot_index": 0,
           "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
+          "label": "IMAGE"
         }
       ],
       "properties": {
-        "Node name for S&R": "Resize"
+        "Node name for S&R": "Reimgsize"
       },
       "widgets_values": [
-        "nearest-exact",
-        1024,
-        64
+        "bicubic",
+        512,
+        32
       ]
     },
     {
-      "id": 8,
-      "type": "SaveImage",
-      "pos": [
-        1150,
-        200
-      ],
-      "size": {
-        "0": 315,
-        "1": 270
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 4,
-          "label": "images"
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
-      "id": 2,
+      "id": 1,
       "type": "LoadImage",
-      "pos": [
-        0,
-        50
-      ],
+      "pos": {
+        "0": 100,
+        "1": 100,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 315,
         "1": 314
@@ -272,6 +333,7 @@
       "flags": {},
       "order": 0,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "IMAGE",
@@ -279,11 +341,11 @@
           "links": [
             1,
             3,
-            6
+            5
           ],
+          "slot_index": 0,
           "shape": 3,
-          "label": "IMAGE",
-          "slot_index": 0
+          "label": "IMAGE"
         },
         {
           "name": "MASK",
@@ -305,15 +367,15 @@
   "links": [
     [
       1,
-      2,
-      0,
       1,
+      0,
+      2,
       0,
       "IMAGE"
     ],
     [
       2,
-      1,
+      2,
       0,
       3,
       0,
@@ -321,41 +383,41 @@
     ],
     [
       3,
-      2,
+      1,
       0,
-      7,
+      4,
       0,
       "IMAGE"
     ],
     [
       4,
-      7,
+      4,
       0,
-      8,
+      5,
       0,
       "IMAGE"
     ],
     [
       5,
-      10,
+      1,
       0,
-      9,
+      6,
       0,
       "IMAGE"
     ],
     [
       6,
-      2,
+      6,
       0,
-      10,
+      7,
       0,
       "IMAGE"
     ],
     [
       7,
-      9,
+      7,
       0,
-      11,
+      8,
       0,
       "IMAGE"
     ]
