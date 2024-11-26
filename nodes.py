@@ -18,7 +18,16 @@ class Reimgsize:
             },
         }
 
-    RETURN_TYPES = ("IMAGE",)
+    RETURN_TYPES = (
+        "IMAGE",
+        "INT",
+        "INT",
+    )
+    RETURN_NAMES = (
+        "image",
+        "width",
+        "height",
+    )
     FUNCTION = "resize"
     CATEGORY = "image"
 
@@ -41,7 +50,11 @@ class Reimgsize:
         )
         s = s.movedim(1, -1)
 
-        return (s,)
+        return (
+            s,
+            new_width,
+            new_height,
+        )
 
 
 class Cropimg:
@@ -58,7 +71,16 @@ class Cropimg:
             },
         }
 
-    RETURN_TYPES = ("IMAGE",)
+    RETURN_TYPES = (
+        "IMAGE",
+        "INT",
+        "INT",
+    )
+    RETURN_NAMES = (
+        "image",
+        "width",
+        "height",
+    )
     FUNCTION = "crop"
     CATEGORY = "image"
 
@@ -90,8 +112,60 @@ class Cropimg:
         )
         s = s.movedim(1, -1)
 
-        return (s,)
+        return (
+            s,
+            new_width,
+            new_height,
+        )
 
 
-NODE_CLASS_MAPPINGS = {"Reimgsize": Reimgsize, "Cropimg": Cropimg}
-NODE_DISPLAY_NAME_MAPPINGS = {"Reimgsize": "Reimgsize", "Cropimg": "Cropimg"}
+class Resizebyratio:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "size": (
+                    "INT",
+                    {"default": 1024, "min": 32, "max": 8192, "step": 1},
+                ),
+                "width_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
+                "height_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
+                "GCD": ("INT", {"default": 64, "min": 1, "max": 512, "step": 1}),
+            },
+        }
+
+    RETURN_TYPES = (
+        "INT",
+        "INT",
+    )
+    RETURN_NAMES = (
+        "width",
+        "height",
+    )
+    FUNCTION = "resizebyratio"
+    CATEGORY = "utils"
+
+    def resizebyratio(self, size, width_ratio, height_ratio, GCD):
+        target = size**2
+        ratio = width_ratio / height_ratio
+        height = (target / ratio) ** 0.5
+        width = ratio * height
+        height = round(height / GCD) * GCD
+        width = round(width / GCD) * GCD
+
+        return (
+            width,
+            height,
+        )
+
+
+NODE_CLASS_MAPPINGS = {
+    "Reimgsize": Reimgsize,
+    "Cropimg": Cropimg,
+    "Resizebyratio": Resizebyratio,
+}
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "Reimgsize": "Reimgsize",
+    "Cropimg": "Cropimg",
+    "Resizebyratio": "Resizebyratio",
+}
