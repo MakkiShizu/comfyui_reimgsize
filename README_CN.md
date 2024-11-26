@@ -30,6 +30,7 @@ git clone https://github.com/MakkiShizu/comfyui_reimgsize.git
 
 - image/Reimgsize
 - image/Cropimg
+- utils/Resizebyratio
 
 #### 许可证
 

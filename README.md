@@ -30,6 +30,7 @@ nodes path：
 
 - image/Reimgsize
 - image/Cropimg
+- utils/Resizebyratio
 
 #### License
 
