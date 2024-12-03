@@ -2,7 +2,7 @@
 
 a simple reimgsize node(s) in comfyui | 一个简单的comfyui重载图像大小节点
 
-[[简体中文](README-zh.md)|English]
+[[简体中文](README_CN.md)|English]
 
 ## Description
 
