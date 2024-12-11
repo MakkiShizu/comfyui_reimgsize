@@ -1,12 +1,12 @@
 # comfyui_reimgsize
 
-a simple reimgsize node(s) in comfyui | 一个简单的comfyui重载图像大小节点
+simple image resize node(s) in comfyui | 简单的comfyui节点用于重载图像大小
 
 [简体中文|[English](README.md)]
 
 ## 简介
 
-一个简单的ComfyUI节点，用于将图像按比例调整到给定像素量大小，并将分辨率标准化至符合给定的GCD的倍数。
+一些简单的 ComfyUI 节点，用于将图像缩放到指定的**像素量总和**，并将分辨率标准化为给定 GCD 的倍数。
 
 ## 作用
 
