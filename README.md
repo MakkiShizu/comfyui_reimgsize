@@ -1,12 +1,12 @@
 # comfyui_reimgsize
 
-a simple reimgsize node(s) in comfyui | 一个简单的comfyui重载图像大小节点
+simple image resize node(s) in comfyui | 简单的comfyui节点用于重载图像大小
 
 [[简体中文](README_CN.md)|English]
 
 ## Description
 
-A simple ComfyUI node for scaling an image to a specified pixel size and standardizing the resolution to a multiple of a given GCD.
+Some simple ComfyUI nodes are used to scale an image to a specified **sum of pixels** and standardize the resolution to a multiple of the given GCD.
 
 ## Features
 
