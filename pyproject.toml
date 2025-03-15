@@ -1,7 +1,7 @@
 [project]
 name = "comfyui_reimgsize"
 description = "a simple reimgsize node(s) in comfyui."
-version = "1.0.4"
+version = "1.0.5"
 license = {file = "LICENSE"}
 
 [project.urls]
