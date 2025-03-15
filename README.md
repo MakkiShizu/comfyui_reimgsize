@@ -8,7 +8,7 @@ simple image resize node(s) in comfyui | 简单的comfyui节点用于重载图�
 
 Some simple ComfyUI nodes are used to scale an image to a specified **sum of pixels** and standardize the resolution to a multiple of the given GCD.
 
-This repository is not specific to the length and width values of an image, but focuses more on adjusting the total pixel count, side length specifications, and size ratios of the image.
+This repository is not specific to the length and width values of an image, but focuses more on adjusting the **total pixel count**, **side length specifications**, and **size ratios** of the image.
 
 ## Features
 
