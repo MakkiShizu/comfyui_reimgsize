@@ -18,7 +18,7 @@ simple image resize node(s) in comfyui | 简单的comfyui节点用于重载图�
 
 ## 例子
 
-![image](./workflow/comfyui_reimgsize.png)
+![image](./example_workflows/comfyui_reimgsize.png)
 
 ## 安装
 

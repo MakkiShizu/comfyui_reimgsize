@@ -18,7 +18,7 @@ This repository is not specific to the length and width values of an image, but 
 
 ## Example
 
-![image](./workflow/comfyui_reimgsize.png)
+![image](./example_workflows/comfyui_reimgsize.png)
 
 ## Installation
 
