@@ -66,8 +66,14 @@ class Cropimg:
             "required": {
                 "image": ("IMAGE",),
                 "upscale_method": (s.upscale_methods, {"default": "bicubic"}),
-                "width_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
-                "height_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
+                "width_ratio": (
+                    "FLOAT",
+                    {"default": 1.0, "min": 0.001, "max": 64.0, "step": 0.001},
+                ),
+                "height_ratio": (
+                    "FLOAT",
+                    {"default": 1.0, "min": 0.001, "max": 64.0, "step": 0.001},
+                ),
             },
         }
 
@@ -128,8 +134,14 @@ class Resizebyratio:
                     "INT",
                     {"default": 1024, "min": 32, "max": 8192, "step": 1},
                 ),
-                "width_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
-                "height_ratio": ("INT", {"default": 1, "min": 1, "max": 64, "step": 1}),
+                "width_ratio": (
+                    "FLOAT",
+                    {"default": 1.0, "min": 0.001, "max": 64.0, "step": 0.001},
+                ),
+                "height_ratio": (
+                    "FLOAT",
+                    {"default": 1.0, "min": 0.001, "max": 64.0, "step": 0.001},
+                ),
                 "GCD": ("INT", {"default": 64, "min": 1, "max": 512, "step": 1}),
             },
         }

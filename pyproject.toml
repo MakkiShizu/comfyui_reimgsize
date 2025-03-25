@@ -1,7 +1,7 @@
 [project]
 name = "comfyui_reimgsize"
-description = "a simple reimgsize node(s) in comfyui."
-version = "1.0.7"
+description = "a simple resize image node(s) in comfyui. This repository is not specific to the length and width values of an image, but focuses more on adjusting the **total pixel count**, **side length specifications**, and **size ratios** of the image."
+version = "1.0.8"
 license = {file = "LICENSE"}
 
 [project.urls]
