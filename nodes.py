@@ -3,6 +3,7 @@ import comfy.utils
 
 class Reimgsize:
     upscale_methods = ["nearest-exact", "bilinear", "area", "bicubic", "lanczos"]
+    crop_methods = ["disabled", "center"]
 
     @classmethod
     def INPUT_TYPES(s):
@@ -10,6 +11,7 @@ class Reimgsize:
             "required": {
                 "image": ("IMAGE",),
                 "upscale_method": (s.upscale_methods, {"default": "bicubic"}),
+                "crop_methods": (s.crop_methods, {"default": "disabled"}),
                 "img_size": (
                     "INT",
                     {"default": 1024, "min": 64, "max": 8192, "step": 1},
@@ -22,21 +24,22 @@ class Reimgsize:
         "IMAGE",
         "INT",
         "INT",
+        "INT",
     )
     RETURN_NAMES = (
         "image",
         "width",
         "height",
+        "count",
     )
     FUNCTION = "resize"
     CATEGORY = "image"
 
-    def resize(self, image, img_size, upscale_method, GCD):
-        samples = image.movedim(-1, 1)
-
+    def resize(self, image, img_size, upscale_method, crop_methods, GCD):
         target_pixels = img_size**2
-        original_width = samples.shape[3]
-        original_height = samples.shape[2]
+        original_width = image.shape[2]
+        original_height = image.shape[1]
+        count = image.shape[0]
 
         aspect_ratio = original_width / original_height
         new_height = int((target_pixels / aspect_ratio) ** 0.5)
@@ -45,15 +48,17 @@ class Reimgsize:
         new_width = round(new_width / GCD) * GCD
         new_height = round(new_height / GCD) * GCD
 
-        s = comfy.utils.common_upscale(
-            samples, new_width, new_height, upscale_method, "disabled"
+        image = image.movedim(-1, 1)
+        new_image = comfy.utils.common_upscale(
+            image, new_width, new_height, upscale_method, crop_methods
         )
-        s = s.movedim(1, -1)
+        new_image = new_image.movedim(1, -1)
 
         return (
-            s,
+            new_image,
             new_width,
             new_height,
+            count,
         )
 
 
