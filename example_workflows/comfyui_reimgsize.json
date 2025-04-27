@@ -1,566 +1,213 @@
 {
+  "id": "3eac81fd-9a02-4b7b-84f9-7e283de1d294",
+  "revision": 0,
   "last_node_id": 12,
-  "last_link_id": 10,
+  "last_link_id": 9,
   "nodes": [
     {
-      "id": 5,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        600,
-        630
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 2,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 6,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        600,
-        730
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 3,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 3,
-      "type": "Resizebyratio",
+      "id": 10,
+      "type": "Reimgsize",
       "pos": [
         200,
-        630
+        230
+      ],
+      "size": [
+        315,
+        210
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "width",
+          "name": "width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "label": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "count",
+          "name": "count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "channels",
+          "name": "channels",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_reimgsize",
+        "ver": "094c9e1465c28a00fdaa881bf6327ce7bc97c3de",
+        "Node name for S&R": "Reimgsize"
+      },
+      "widgets_values": [
+        "bicubic",
+        "disabled",
+        1024,
+        64
+      ]
+    },
+    {
+      "id": 11,
+      "type": "Cropimg",
+      "pos": [
+        600,
+        230
+      ],
+      "size": [
+        315,
+        210
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "label": "width",
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "count",
+          "name": "count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "label": "channels",
+          "name": "channels",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_reimgsize",
+        "ver": "094c9e1465c28a00fdaa881bf6327ce7bc97c3de",
+        "Node name for S&R": "Cropimg"
+      },
+      "widgets_values": [
+        "bicubic",
+        "center",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Resizebyratio",
+      "pos": [
+        1000,
+        230
       ],
       "size": [
         315,
         150
       ],
       "flags": {},
-      "order": 0,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
+          "label": "width",
           "name": "width",
           "type": "INT",
-          "links": [
-            2
-          ],
-          "label": "width",
-          "slot_index": 0
+          "links": null
         },
         {
+          "label": "height",
           "name": "height",
           "type": "INT",
-          "links": [
-            3
-          ],
-          "label": "height",
-          "slot_index": 1
+          "links": null
         }
       ],
       "properties": {
+        "cnr_id": "comfyui_reimgsize",
+        "ver": "094c9e1465c28a00fdaa881bf6327ce7bc97c3de",
         "Node name for S&R": "Resizebyratio"
       },
       "widgets_values": [
         1024,
-        16,
-        9,
-        64
-      ]
-    },
-    {
-      "id": 1,
-      "type": "Reimgsize",
-      "pos": [
-        600,
-        230
-      ],
-      "size": [
-        315,
-        146
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 1,
-          "label": "image"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            5
-          ],
-          "label": "image",
-          "slot_index": 0
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            10
-          ],
-          "label": "width"
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            9
-          ],
-          "label": "height"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Reimgsize"
-      },
-      "widgets_values": [
-        "bilinear",
-        512,
-        8
-      ]
-    },
-    {
-      "id": 2,
-      "type": "Cropimg",
-      "pos": [
-        600,
-        430
-      ],
-      "size": [
-        315,
-        146
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 4,
-          "label": "image"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            6
-          ],
-          "label": "image",
-          "slot_index": 0
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            7
-          ],
-          "label": "width"
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            8
-          ],
-          "label": "height"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Cropimg"
-      },
-      "widgets_values": [
-        "bicubic",
         1,
-        2
-      ]
-    },
-    {
-      "id": 11,
-      "type": "PreviewImage",
-      "pos": [
-        1000,
-        230
-      ],
-      "size": [
-        210,
-        250
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 5,
-          "label": "图像"
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 9,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        1300,
-        230
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 10,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 10,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        1300,
-        330
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 9,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 7,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        1300,
-        530
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 7,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 8,
-      "type": "Display Int (rgthree)",
-      "pos": [
-        1300,
-        630
-      ],
-      "size": [
-        315,
-        76
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "INT",
-          "link": 8,
-          "widget": {
-            "name": "input"
-          },
-          "label": "输入",
-          "dir": 3
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "Display Int (rgthree)"
-      },
-      "widgets_values": [
-        0,
-        ""
-      ]
-    },
-    {
-      "id": 12,
-      "type": "PreviewImage",
-      "pos": [
-        1000,
-        530
-      ],
-      "size": [
-        210,
-        250
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 6,
-          "label": "图像"
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 4,
-      "type": "LoadImage",
-      "pos": [
-        200,
-        230
-      ],
-      "size": [
-        320,
-        310
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            1,
-            4
-          ],
-          "label": "图像",
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "label": "遮罩"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "18729-Makki_Shizu-noobaiXLNAIXL_epsilonPred10Version(ff827fc345)-20241107084129.png",
-        "image"
+        1,
+        64
       ]
     }
   ],
-  "links": [
-    [
-      1,
-      4,
-      0,
-      1,
-      0,
-      "IMAGE"
-    ],
-    [
-      2,
-      3,
-      0,
-      5,
-      0,
-      "INT"
-    ],
-    [
-      3,
-      3,
-      1,
-      6,
-      0,
-      "INT"
-    ],
-    [
-      4,
-      4,
-      0,
-      2,
-      0,
-      "IMAGE"
-    ],
-    [
-      5,
-      1,
-      0,
-      11,
-      0,
-      "IMAGE"
-    ],
-    [
-      6,
-      2,
-      0,
-      12,
-      0,
-      "IMAGE"
-    ],
-    [
-      7,
-      2,
-      1,
-      7,
-      0,
-      "INT"
-    ],
-    [
-      8,
-      2,
-      2,
-      8,
-      0,
-      "INT"
-    ],
-    [
-      9,
-      1,
-      2,
-      10,
-      0,
-      "INT"
-    ],
-    [
-      10,
-      1,
-      1,
-      9,
-      0,
-      "INT"
-    ]
-  ],
+  "links": [],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1,
+      "scale": 1.226431718061674,
       "offset": [
-        0,
-        0
+        -0.8333333333332575,
+        31.833692528735583
       ]
-    }
+    },
+    "frontendVersion": "1.17.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }

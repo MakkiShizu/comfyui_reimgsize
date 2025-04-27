@@ -14,14 +14,25 @@ class Reimgsize:
                 "crop_methods": (s.crop_methods, {"default": "disabled"}),
                 "img_size": (
                     "INT",
-                    {"default": 1024, "min": 64, "max": 8192, "step": 1},
+                    {"default": 1024, "min": 1, "max": 8192, "step": 1},
                 ),
                 "GCD": ("INT", {"default": 64, "min": 1, "max": 512, "step": 1}),
+            },
+            "optional": {
+                "width": (
+                    "INT",
+                    {"min": 1, "max": 8192, "step": 1, "defaultInput": True},
+                ),
+                "height": (
+                    "INT",
+                    {"min": 1, "max": 8192, "step": 1, "defaultInput": True},
+                ),
             },
         }
 
     RETURN_TYPES = (
         "IMAGE",
+        "INT",
         "INT",
         "INT",
         "INT",
@@ -31,19 +42,42 @@ class Reimgsize:
         "width",
         "height",
         "count",
+        "channels",
     )
     FUNCTION = "resize"
-    CATEGORY = "image"
+    CATEGORY = "comfyui_reimgsize"
 
-    def resize(self, image, img_size, upscale_method, crop_methods, GCD):
+    def resize(
+        self,
+        image,
+        img_size,
+        upscale_method,
+        crop_methods,
+        GCD,
+        width=None,
+        height=None,
+    ):
         target_pixels = img_size**2
+        channels = image.shape[3]
         original_width = image.shape[2]
         original_height = image.shape[1]
         count = image.shape[0]
 
         aspect_ratio = original_width / original_height
-        new_height = int((target_pixels / aspect_ratio) ** 0.5)
-        new_width = int(new_height * aspect_ratio)
+
+        if width is not None or height is not None:
+            if width is not None and height is not None:
+                new_width = width
+                new_height = height
+            elif width is not None:
+                new_width = width
+                new_height = int(new_width / aspect_ratio)
+            else:
+                new_height = height
+                new_width = int(new_height * aspect_ratio)
+        else:
+            new_height = int((target_pixels / aspect_ratio) ** 0.5)
+            new_width = int(new_height * aspect_ratio)
 
         new_width = round(new_width / GCD) * GCD
         new_height = round(new_height / GCD) * GCD
@@ -59,11 +93,13 @@ class Reimgsize:
             new_width,
             new_height,
             count,
+            channels,
         )
 
 
 class Cropimg:
     upscale_methods = ["nearest-exact", "bilinear", "area", "bicubic", "lanczos"]
+    crop_methods = ["disabled", "center"]
 
     @classmethod
     def INPUT_TYPES(s):
@@ -71,6 +107,7 @@ class Cropimg:
             "required": {
                 "image": ("IMAGE",),
                 "upscale_method": (s.upscale_methods, {"default": "bicubic"}),
+                "crop_methods": (s.crop_methods, {"default": "center"}),
                 "width_ratio": (
                     "FLOAT",
                     {"default": 1.0, "min": 0.001, "max": 64.0, "step": 0.001},
@@ -86,20 +123,25 @@ class Cropimg:
         "IMAGE",
         "INT",
         "INT",
+        "INT",
+        "INT",
     )
     RETURN_NAMES = (
         "image",
         "width",
         "height",
+        "count",
+        "channels",
     )
     FUNCTION = "crop"
-    CATEGORY = "image"
+    CATEGORY = "comfyui_reimgsize"
 
-    def crop(self, image, upscale_method, width_ratio, height_ratio):
-        samples = image.movedim(-1, 1)
+    def crop(self, image, upscale_method, crop_methods, width_ratio, height_ratio):
+        channels = image.shape[3]
+        original_width = image.shape[2]
+        original_height = image.shape[1]
+        count = image.shape[0]
 
-        original_width = samples.shape[3]
-        original_height = samples.shape[2]
         original_resolution = original_width * original_height
 
         desired_aspect = width_ratio / height_ratio
@@ -118,8 +160,9 @@ class Cropimg:
         new_width = int(new_width * scale)
         new_height = int(new_height * scale)
 
+        samples = image.movedim(-1, 1)
         s = comfy.utils.common_upscale(
-            samples, new_width, new_height, upscale_method, "center"
+            samples, new_width, new_height, upscale_method, crop_methods
         )
         s = s.movedim(1, -1)
 
@@ -127,6 +170,8 @@ class Cropimg:
             s,
             new_width,
             new_height,
+            count,
+            channels,
         )
 
 
@@ -160,7 +205,7 @@ class Resizebyratio:
         "height",
     )
     FUNCTION = "resizebyratio"
-    CATEGORY = "utils"
+    CATEGORY = "comfyui_reimgsize"
 
     def resizebyratio(self, size, width_ratio, height_ratio, GCD):
         target = size**2

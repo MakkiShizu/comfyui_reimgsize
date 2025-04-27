@@ -2,6 +2,8 @@
 
 simple image resize node(s) in comfyui | 简单的comfyui节点用于重载图像大小
 
+**Just a Repetitive wheels, beginner's self use node... Sorry.**
+
 [[简体中文](README_CN.md)|English]
 
 ## Description
@@ -18,7 +20,7 @@ This repository is not specific to the length and width values of an image, but 
 
 ## Example
 
-![image](./example_workflows/comfyui_reimgsize.png)
+![image](./example_workflows/comfyui_reimgsize.jpg)
 
 ## Installation
 
@@ -30,9 +32,9 @@ git clone https://github.com/MakkiShizu/comfyui_reimgsize.git
 
 nodes path：
 
-- image/Reimgsize
-- image/Cropimg
-- utils/Resizebyratio
+- comfyui_reimgsize/Reimgsize
+- comfyui_reimgsize/Cropimg
+- comfyui_reimgsize/Resizebyratio
 
 #### License
 
